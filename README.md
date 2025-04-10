@@ -5,6 +5,7 @@ This project provides a self-contained command-line based approach to build the 
 - No build system. (no maven, no gradle)
 - Only a single `build.bat` file is used to build the whole project.
 - I just used `javac` and `java` (comes with JDK) to build the projects (cloudsimplus & cloudsimplus-examples) and run those examples.
+- I vendored all dependencies (.jars) in the `libs/` folder. Inside `build.bat` I generate the classpath using all the libraries in the libs/ folder. (cmd magic)
 - java & javac version
 ``` sh
 javac --version
@@ -209,6 +210,9 @@ C:\GITHUB\CLOUDSIMPLUS-CMD
 - `out/`: This contains all generated `.class` files for cloudsimplus library. (not added to repo)
 - `out_samples/`: This contains all generated `.class` files for cloudsimplus-examples. (not added to repo)
 - `lombok.config`: Config file to be used by *preprocessor* i.e. `lombok`.
+- `libs/`: This contains all the libraires (dependencies) to build this project. (literally 17 dependecies).
+
+NOTE: dependencies are not good. If you are building a library, try to be as minimal and as bare bones as possible. (that would be best, at least for simple tasks don't use any other libraries).
 
 ## Credits
 This project uses code from the following open-source repositories:
