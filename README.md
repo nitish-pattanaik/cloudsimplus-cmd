@@ -212,11 +212,11 @@ C:\GITHUB\CLOUDSIMPLUS-CMD
 
 ## Credits
 This project uses code from the following open-source repositories:
-- CloudSim Plus: https://github.com/manoelcampos/cloudsim-plus
+- CloudSim Plus: https://github.com/cloudsimplus/cloudsimplus
     - Copyright © Manoel Campos
     - Licensed under Apache License 2.0
 
-- CloudSim Plus Examples: https://github.com/manoelcampos/cloudsim-plus-examples
+- CloudSim Plus Examples: https://github.com/cloudsimplus/cloudsimplus-examples
     - Copyright © Manoel Campos
     - Licensed under Apache License 2.0
 
