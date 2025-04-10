@@ -20,23 +20,11 @@ OpenJDK 64-Bit Server VM Temurin-21.0.5+11 (build 21.0.5+11-LTS, mixed mode, sha
 ## Build
 - Just run: `build.bat`. That's it.
 - You can look what it's doing beforehand. (if you are not comfortable to run it directly).
+- Let me know if you'd like a Linux version of the build system (`.sh` scripts). Actually it's super simple to convert `build.bat` to `build.sh`. This is the power of simplicity (I guess).
 
 ## Run
 - By default script will run the `org.cloudsimplus.examples.BasicFirstExample`.
 - If you wants to run something else, modify build.bat (where I try to run example using java).
-
-## Credits
-This project uses code from the following open-source repositories:
-
-- CloudSim Plus: https://github.com/manoelcampos/cloudsim-plus
-    Copyright © Manoel Campos
-    Licensed under Apache License 2.0
-
-- CloudSim Plus Examples: https://github.com/manoelcampos/cloudsim-plus-examples
-    Copyright © Manoel Campos
-    Licensed under Apache License 2.0
-
-This project only modifies the build process for educational and convenience purposes. All credit goes to the original developers of CloudSim Plus.
 
 ## Project Structure
 ``` sh
@@ -222,3 +210,15 @@ C:\GITHUB\CLOUDSIMPLUS-CMD
 - `out_samples/`: This contains all generated `.class` files for cloudsimplus-examples. (not added to repo)
 - `lombok.config`: Config file to be used by *preprocessor* i.e. `lombok`.
 
+## Credits
+This project uses code from the following open-source repositories:
+- CloudSim Plus: https://github.com/manoelcampos/cloudsim-plus
+    - Copyright © Manoel Campos
+    - Licensed under Apache License 2.0
+
+- CloudSim Plus Examples: https://github.com/manoelcampos/cloudsim-plus-examples
+    - Copyright © Manoel Campos
+    - Licensed under Apache License 2.0
+
+- This project only modifies the build process for educational and convenience purposes. All credit goes to the original developers of CloudSim Plus.
+- MIT License in this repo doesn't refer to original source code of cloudsimplus and cloudsimplus-examples.
