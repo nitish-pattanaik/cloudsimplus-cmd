@@ -39,7 +39,10 @@ shift
 goto parse_args
 
 :after_parse
-echo %GROUP_ID%, %ARTIFACT_ID%, %VERSION%
+if "%GROUP_ID%"=="" (echo ERROR: GroupID is missing! & set err=1)
+if "%ARTIFACT_ID%"=="" (echo ERROR: ArtifactID is missing! & set err=1)
+if "%VERSION%"=="" (echo ERROR: Version is missing! & set err=1)
+if defined (err exit /b) 1 else (echo %GROUP_ID%, %ARTIFACT_ID%, %VERSION%)
 
 :: Build the URL to fetch
 :: https://repo1.maven.org/maven2/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar

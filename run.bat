@@ -28,19 +28,21 @@ set FQCN=%FQCN:/=.%
 set FQCN=%FQCN:.java=%
 echo FQCN: %FQCN%
 
-:: shift args (pop 1st argument)
-shift
 
 :: Compile The Example & Generate .class file
-%COMPILER% -cp "%CP%;%CSP_CLASSES%"  -d %OUTPUT_PATH% -sourcepath %SRC_PATH% %SRC_PATH%\%INPUT_FILE%
+%COMPILER% -Xlint:preview --source 21 --enable-preview -cp "%CP%;%CSP_CLASSES%"  -d %OUTPUT_PATH% -sourcepath %SRC_PATH% %SRC_PATH%\%INPUT_FILE%
 if %ERRORLEVEL% neq 0 (
    echo ERROR: Compilation Failed! && exit /b %ERRORLEVEL%
 ) else (
   echo COMPILE: Successfully Compiled.
 )
 
+:: shift args (pop 1st argument)
+shift
+
 :: Run the corresponding .class file through FQCN
-%EXEC% -cp "%CP%;%CSP_CLASSES%;%OUTPUT_PATH%" %FQCN%
+%EXEC% --enable-preview -cp "%CP%;%CSP_CLASSES%;%OUTPUT_PATH%" %FQCN% %*
+
 if %ERRORLEVEL% neq 0 (
    echo ERROR: Failed to run %FQCN% && exit /b %ERRORLEVEL%
 ) else (
