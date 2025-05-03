@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+//////////////////////////////
+// camelCase: variable, method/function names
+// PascalCase: Types
 
 public class first {
     public static void main(String[] args) throws Exception {
@@ -28,7 +31,7 @@ public class first {
             fp.createNewFile();
             System.out.println("New file created successfully.");
         } else {
-            try (PrintWriter pw = new PrintWriter(fp.getAbsolutePath())) { }
+            try (PrintWriter pw = new PrintWriter(fp.getAbsolutePath())) { } //normal tr catch block
             catch (IOException e) { e.printStackTrace(); }
             System.out.println("File already exists. Hence, file contents erased! (to be written in future)");
         }
@@ -50,15 +53,22 @@ public class first {
                                                );
         pb.inheritIO().start().waitFor();
 
-        // Runa a particular example
+        // Run a particular example
         String runTime = "java";
         String exFile = "samples/org/cloudsimplus/examples/LoggingExample.java";
         ProcessBuilder run = new ProcessBuilder(runTime, "-cp", classPath, exFile);
+        /*
+          inheritIO(): redirects subprocess's standard IO and ERR streams to current process's stream
+          start(): Start executing the subprocess
+          waitFor(): Suspends the current thread until the started process completed or a specified timeout reached.
+                     Returns `true` if successfully completed process, otherwise returns `false`.
+         */
         run.inheritIO().start().waitFor();
+
     }
 
     public static void traverseDirRec(File dir, File ans, File workDir) {
-        try (FileWriter writer = new FileWriter(ans, true)){
+        try (FileWriter writer = new FileWriter(ans, true)){ // try-with-resource block (automatically close resource at end)
             traverseDirHelper(dir, writer, workDir);
         } catch (IOException e) {
             System.err.println("IO Error occurred");

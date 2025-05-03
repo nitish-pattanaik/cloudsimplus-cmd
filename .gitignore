@@ -1,3 +1,4 @@
 out/
 out_samples/
 test/
+*.class
